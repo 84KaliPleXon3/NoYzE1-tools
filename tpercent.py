@@ -16,7 +16,7 @@ def get_percent(now):
 def render_bar(value):
     bar = "["
     bar += "#" * int(value / 5)
-    bar += " " * (20 - int(value / 5))
+    bar += " " * ((20 - int(value / 5)) - 1)
     bar += "] "
     return bar
 
