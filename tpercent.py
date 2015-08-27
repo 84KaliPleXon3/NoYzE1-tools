@@ -11,7 +11,7 @@ def calc_left(now):
     return 61800 - now
 
 def get_percent(now):
-    return ((30600 - calc_left(get_now())) / 30600) * 100
+    return ((30600 - calc_left(now)) / 30600) * 100
 
 def render_bar(value):
     bar = "["
