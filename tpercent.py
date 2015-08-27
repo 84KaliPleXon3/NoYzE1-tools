@@ -25,3 +25,6 @@ while True:
     value = round(get_percent(get_now()),2)
     os.system("cls")
     print(render_bar(value),value,"%",sep="")
+    if value >= 100:
+        print("Done!")
+        break
