@@ -1,10 +1,13 @@
 import time
 import os
 
+msec = (time.time() - int(time.time()))
+
 def get_now():
         now = time.localtime().tm_hour * 60 * 60
         now += time.localtime().tm_min * 60
         now += time.localtime().tm_sec
+        now += time.time() - int(time.time())
         return now
 
 def calc_left(now):
