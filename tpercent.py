@@ -1,7 +1,12 @@
 import time
 import os
+import sys
 
-msec = (time.time() - int(time.time()))
+for arg in sys.argv:
+    if arg == "-v":
+        verbose = True
+    else:
+        verbose = False
 
 def get_now():
         now = time.localtime().tm_hour * 60 * 60
@@ -26,7 +31,8 @@ def render_bar(value):
 while True:
     time.sleep(.1)
     value = round(get_percent(get_now()),3)
-    #os.system("cls")
+    if not verbose:
+        os.system("cls")
     print(render_bar(value),value,"%",sep="")
     if value >= 100:
         print("Done!")
