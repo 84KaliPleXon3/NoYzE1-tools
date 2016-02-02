@@ -29,8 +29,8 @@ def render_bar(value):
     return bar
 
 while True:
-    time.sleep(.1)
-    value = round(get_percent(get_now()),3)
+    time.sleep(.05)
+    value = round(get_percent(get_now()),4)
     if not verbose:
         os.system("cls")
     print(render_bar(value),value,"%",sep="")
