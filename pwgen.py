@@ -10,7 +10,10 @@ def info():
     l: lsa""")
 
 def lsa():
-    return int(int(str(time.time())[-1])+int(str(time.time())[-2])/1.25)-1
+    try:
+        return int(int(str(time.time())[-1])+int(str(time.time())[-2])/1.25)-1
+    except:
+        return lsa()
 
 def gen_hash(mode):
     my_hash = ""
