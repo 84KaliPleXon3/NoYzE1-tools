@@ -9,10 +9,7 @@ def info():
     r: python built-in random
     l: lsa""")
 
-def my_random(hex_list):
-    return hex_list[int(int(str(time.time())[-1])+int(str(time.time())[-2])/1.25)-1]
-
-def my_random2():
+def lsa():
     return int(int(str(time.time())[-1])+int(str(time.time())[-2])/1.25)-1
 
 def gen_hash(mode):
@@ -23,10 +20,12 @@ def gen_hash(mode):
         return my_hash
     elif mode == "lsa":
         for i in range(32):
-            rnd = my_random2()
+            rnd = lsa()
             rnd2 = (rnd + 1) / 1000
             my_hash += hex_list[rnd]
             time.sleep(rnd2)
+            while rnd == lsa():
+                pass
         return my_hash
 
 if len(sys.argv) > 2:
