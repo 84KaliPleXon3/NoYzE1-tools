@@ -6,7 +6,7 @@ hex_list = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
 
 def info():
     print("""Usage: hash.py -a <algorithm>
-    r: python built-in random
+    p: python built-in pseudo-random
     l: lsa""")
 
 def lsa():
@@ -14,7 +14,7 @@ def lsa():
 
 def gen_hash(mode):
     my_hash = ""
-    if mode == "random":
+    if mode == "py":
         for i in range(32):
             my_hash += random.choice(hex_list)
         return my_hash
@@ -29,11 +29,20 @@ def gen_hash(mode):
         return my_hash
 
 if len(sys.argv) > 2:
-    if sys.argv[1] == "-a" and sys.argv[2] == "r":
-        print(gen_hash("random"))
+    if sys.argv[1] == "-a" and sys.argv[2] == "p":
+        print(gen_hash("py"))
     elif sys.argv[1] == "-a" and sys.argv[2] == "l":
         print(gen_hash("lsa"))
     else:
         info()
+elif len(sys.argv) > 1 and sys.argv[1] == "-debug":
+    i = 1
+    a = gen_hash("lsa")
+    print(a, "0", flush=True)
+    b = ""
+    while b != a:
+        b = gen_hash("lsa")
+        print(b, i, flush=True)
+        i += 1
 else:
     info()
