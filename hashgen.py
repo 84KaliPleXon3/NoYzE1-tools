@@ -5,7 +5,7 @@ import sys
 hex_list = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
 
 def info():
-    print("""Usage: pwgen.py -a <algorithm>
+    print("""Usage: hashgen.py -a <algorithm>
     p: python built-in pseudo-random
     l: lsa""")
 
