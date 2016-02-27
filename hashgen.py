@@ -38,14 +38,5 @@ if len(sys.argv) > 2:
         print(gen_hash("lsa"))
     else:
         info()
-elif len(sys.argv) > 1 and sys.argv[1] == "-debug":
-    i = 1
-    a = gen_hash("lsa")
-    print(a, "0", flush=True)
-    b = ""
-    while b != a:
-        b = gen_hash("lsa")
-        print(b, i, flush=True)
-        i += 1
 else:
     info()
