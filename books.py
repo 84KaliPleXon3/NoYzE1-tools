@@ -41,7 +41,7 @@ def main():
         elif i == "Debug":
             pass
 
-    connection.commit()
+        connection.commit()
 
 show_tables()
 main()
