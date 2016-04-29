@@ -71,14 +71,28 @@ class C:
         if self.e >= 500:
             self.e = self.e / 2
             W.c.append(C(self.x,self.y,self.e))
+def dr():
+    for y in range(W.y[1]):
+        print()
+        for x in range(W.x[1]):
+            pc = False
+            for c in W.c:
+                if c.x == x and c.y == y:
+                    pc = True
+            if pc:
+                print("x",end='')
+            else:
+                print(".",end='')
+    print()
 def main():
     for i in range(100):
         W.c.append(C(50,50,250))
     for i in range(1000):
         W.sf()
     while True:
-        #time.sleep(.5)
-        print("C: " + str(len(W.c)))
-        print("F: " + str(len(W.f)))
+        #time.sleep(.1)
+        dr()
+        #print("C: " + str(len(W.c)))
+        #print("F: " + str(len(W.f)))
         W.pt()
 main()
