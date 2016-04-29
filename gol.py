@@ -1,14 +1,15 @@
 import time
 import random
+import os
 class W:
     t = 0
-    x = [0,100]
-    y = [0,100]
+    x = [0,30]
+    y = [0,30]
     c = []
     f = []
     def sf():
-        rx = random.randint(0,100)
-        ry = random.randint(0,100)
+        rx = random.randint(0,30)
+        ry = random.randint(0,30)
         W.f.append(F(rx,ry))
     def pt():
         W.t += 1
@@ -64,7 +65,7 @@ class C:
                 W.c.remove(c)
     def l(self):
         if self.e > 0:
-            self.e -= 1
+            self.e -= 5
         else:
             self.d()
     def s(self):
@@ -72,6 +73,7 @@ class C:
             self.e = self.e / 2
             W.c.append(C(self.x,self.y,self.e))
 def dr():
+    os.system("cls")
     for y in range(W.y[1]):
         print()
         for x in range(W.x[1]):
@@ -85,10 +87,7 @@ def dr():
                 print(".",end='')
     print()
 def main():
-    for i in range(100):
-        W.c.append(C(50,50,250))
-    for i in range(1000):
-        W.sf()
+    W.c.append(C(15,15,250))
     while True:
         #time.sleep(.1)
         dr()
