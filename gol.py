@@ -73,23 +73,30 @@ class C:
             self.e = self.e / 2
             W.c.append(C(self.x,self.y,self.e))
 def dr():
-    os.system("cls")
+    os.system("clear")
     for y in range(W.y[1]):
         print()
         for x in range(W.x[1]):
             pc = False
+            fc = False
             for c in W.c:
                 if c.x == x and c.y == y:
                     pc = True
             if pc:
-                print("x",end='')
+                print("o",end='')
             else:
-                print(".",end='')
+                for f in W.f:
+                    if f.x == x and f.y == y:
+                        fc = True
+                if fc:
+                    print("x",end='')
+                else:
+                    print(".",end='')
     print()
 def main():
     W.c.append(C(15,15,250))
     while True:
-        #time.sleep(.1)
+        time.sleep(.1)
         dr()
         #print("C: " + str(len(W.c)))
         #print("F: " + str(len(W.f)))
